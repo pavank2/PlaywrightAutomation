@@ -1,0 +1,13 @@
+{
+  "common":{
+    "url": "http://www.miro.com"
+  },
+  "register": {
+      "name": "User",
+      "email": "random",
+      "password": "randompass1234",
+      "shortPassword": "pass",
+      "greatPassword": "greatpass12345!@#",
+      "weakPassword": "register"
+    }
+}
