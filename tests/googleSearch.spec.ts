@@ -13,6 +13,10 @@ test.describe('Google Search functionality', () => {
    await page.goto(data.common.url); 
    });
 
+   /**
+    * Searches for a pattern
+    * Verifies results page title and google logo is visible
+    */  
    test('Verify Google Search', async ({ page }) => { 
       const landingPage = new LandingPage(page);
       const resultsPage = new SearchResultPage(page);
@@ -22,7 +26,11 @@ test.describe('Google Search functionality', () => {
       await expect(resultsPage.logo).toBeVisible();
     }); 
 
-   test('Verify Search Filters', async ({ page }) => { 
+   /**
+    * Searches for a pattern
+    * On the results page, clicks on Search filters button and checks if filter Menu comes up
+    */  
+   test('Verify Search Filter Menu is Visible', async ({ page }) => { 
       const landingPage = new LandingPage(page);
       const resultsPage = new SearchResultPage(page);
       await landingPage.searchPattern("Appian");
