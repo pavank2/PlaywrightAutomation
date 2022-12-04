@@ -16,7 +16,7 @@ test.describe('Google Search functionality', () => {
    test('Verify Google Search', async ({ page }) => { 
       const landingPage = new LandingPage(page);
       const resultsPage = new SearchResultPage(page);
-      await landingPage.searchPattern();
+      await landingPage.searchPattern("Appian");
       //Searching for partial title to avoid German-English conflict
       await expect(page).toHaveTitle(/Appian - Google/); 
       await expect(resultsPage.logo).toBeVisible();
@@ -25,7 +25,7 @@ test.describe('Google Search functionality', () => {
    test('Verify Search Filters', async ({ page }) => { 
       const landingPage = new LandingPage(page);
       const resultsPage = new SearchResultPage(page);
-      await landingPage.searchPattern();
+      await landingPage.searchPattern("Appian");
       await resultsPage.clickSearchFilter();
       await expect(resultsPage.filterMenu).toBeVisible();
    });
