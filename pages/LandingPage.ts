@@ -1,20 +1,28 @@
+/**
+ * This class has elements and functions for the Landing Page
+ */
 import { expect, Locator, Page } from '@playwright/test';
 
 export class LandingPage {
   readonly page: Page;
-  readonly signUpBtn: Locator;
-  readonly coreConceptsLink: Locator;
-  readonly tocList: Locator;
-  readonly name: Locator;
+  readonly cookieReject: Locator;
+  readonly searchBar: Locator;
+  readonly email: Locator;
+  readonly searchButton: Locator;
+  readonly luckyButton: Locator;
+
 
   constructor(page: Page) {
     this.page = page;
-    this.signUpBtn = page.locator("a[href='/signup/']").locator('visible=true');
-    this.name = page.locator("text=Name");   
+    this.cookieReject = page.locator("button:has-text('Alle ablehnen'),button:has-text('Reject all')");
+    this.searchBar = page.locator("[name=q]");
+    this.luckyButton = page.locator("[name=btnI] >> visible=true").first();
   }
 
-  async clickSignUp() {
-    await this.signUpBtn.click();
+  async searchPattern() {
+    await this.cookieReject.click();
+    await this.searchBar.type("Appian");
+    await this.page.keyboard.press('Enter');
  
   }
 
