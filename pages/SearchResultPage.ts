@@ -24,6 +24,7 @@ export class SearchResultPage {
   async isLogoVisible(){
     return (await this.filterMenu.isEnabled());
   }
+  
   async isFilterMenuEnabled(){
     return (await this.filterMenu.isEnabled());
   }
