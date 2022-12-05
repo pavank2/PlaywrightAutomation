@@ -11,7 +11,7 @@ export class SearchResultPage {
 
   constructor(page: Page) {
     this.page = page;
-    this.logo = page.locator("//img[contains(@src, '/logos/doodles/')]");
+    this.logo = page.locator("//img[contains(@src,'/logos/doodles/')]");
     this.searchFilter = page.locator("#hdtb-tls");
     //Covering for weird google incognito mode which shows results in German though my language is English
     this.filterMenu = page.locator("#top_nav").locator("div:has-text('Beliebige Sprache'),div:has-text('Any language')").locator("visible=true");
@@ -20,4 +20,11 @@ export class SearchResultPage {
   async clickSearchFilter(){
      await this.searchFilter.click();
   } 
+
+  async isLogoVisible(){
+    return (await this.filterMenu.isEnabled());
+  }
+  async isFilterMenuEnabled(){
+    return (await this.filterMenu.isEnabled());
+  }
 }

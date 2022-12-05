@@ -23,7 +23,9 @@ test.describe('Google Search functionality', () => {
       await landingPage.searchPattern("Appian");
       //Searching for partial title to avoid German-English conflict
       await expect(page).toHaveTitle(/Appian - Google/); 
-      await expect(resultsPage.logo).toBeVisible();
+    //  await expect(resultsPage.logo).toBeVisible();
+    expect(await resultsPage.isLogoVisible()).toBe(true);
+
     }); 
 
    /**
@@ -35,7 +37,8 @@ test.describe('Google Search functionality', () => {
       const resultsPage = new SearchResultPage(page);
       await landingPage.searchPattern("Appian");
       await resultsPage.clickSearchFilter();
-      await expect(resultsPage.filterMenu).toBeVisible();
+      //await expect(resultsPage.filterMenu).toBeVisible();
+      expect(await resultsPage.isFilterMenuEnabled()).toBe(true);
    });
 }); 
 
