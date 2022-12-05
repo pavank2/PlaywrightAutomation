@@ -23,22 +23,18 @@ test.describe('Google Search functionality', () => {
       await landingPage.searchPattern("Appian");
       //Searching for partial title to avoid German-English conflict
       await expect(page).toHaveTitle(/Appian - Google/); 
-    //  await expect(resultsPage.logo).toBeVisible();
-    expect(await resultsPage.isLogoVisible()).toBe(true);
-
+      expect(await resultsPage.isLogoVisible()).toBe(true);
     }); 
 
    /**
     * Searches for a pattern
-    * On the results page, clicks on Search filters button and checks if filter Menu comes up
+    * On the results page, clicks on Search filters button and checks if filter Menu is Enabled
     */  
    test('Verify Search Filter Menu is Visible', async ({ page }) => { 
       const landingPage = new LandingPage(page);
       const resultsPage = new SearchResultPage(page);
       await landingPage.searchPattern("Appian");
       await resultsPage.clickSearchFilter();
-      //await expect(resultsPage.filterMenu).toBeVisible();
       expect(await resultsPage.isFilterMenuEnabled()).toBe(true);
    });
 }); 
-
