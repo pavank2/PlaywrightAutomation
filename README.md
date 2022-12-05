@@ -2,14 +2,13 @@
 
 ## Summary
 
-- The project has been implemented using Playwright test.
+- The project has been implemented using Playwright Framework with Typescript.
 - Page Object Model (POM) design pattern has been used to implement the project.
 
 ## Scenarios
 
-There is 1 spec file with 2 Total tests.
+There is 1 spec file with 2 Total tests. Tests are enabled for both Chrome and Firefox to run in parallel.
  
-
 ## Configuration
 - node.js 16.14.1
 - npm 8.5.0
